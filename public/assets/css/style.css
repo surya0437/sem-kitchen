@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    /* --background-color: #f4f1ea; */
+    --background-color: #FEF1E4;
+    --primary: #2a3855;
+    --primary-hover: #233352;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.hover-primary {
+    background-color: var(--primary-hover) !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.border-primary {
+    border-color: var(--primary) !important;
+}
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Animation for the second logo track (reverse direction) */
+@keyframes scroll-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.logo-slide-track {
+    width: calc(250px * 8);
+    /* Adjust based on your logo width and number */
+}
+
+#track1 {
+    animation: scroll 30s linear infinite;
+}
+
+#track2 {
+    animation: scroll-reverse 25s linear infinite;
+}
+
+/* Pause animation on hover */
+.logo-slide-track:hover {
+    animation-play-state: paused;
+}
+
+/* Clone logos for seamless scrolling */
+.logo-slide-track {
+    display: flex;
+}
+
+.logo-slide-track>div {
+    flex-shrink: 0;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
