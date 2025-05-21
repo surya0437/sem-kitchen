@@ -21,6 +21,11 @@ class ProductResource extends Resource
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
+    protected static ?string $navigationGroup = 'Equipment Management';
+    protected static ?string $navigationLabel = 'Equipments';
+    protected static ?string $modelLabel = 'Listed Equipments';
+    protected static ?int $navigationSort = 2;
+
 
     public static function form(Form $form): Form
     {
@@ -192,7 +197,7 @@ class ProductResource extends Resource
                     ->label('SKU')
                     ->searchable(),
                 Tables\Columns\ToggleColumn::make('is_active')
-                ->label('Active'),
+                    ->label('Active'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

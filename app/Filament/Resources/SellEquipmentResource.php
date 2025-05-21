@@ -18,6 +18,10 @@ class SellEquipmentResource extends Resource
     protected static ?string $model = SellEquipment::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Equipment Management';
+    protected static ?string $navigationLabel = 'Equipment Request';
+    protected static ?string $modelLabel = 'Equipment Requests';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
