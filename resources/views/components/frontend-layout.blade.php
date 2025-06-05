@@ -65,7 +65,8 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
                         <a href="{{ route('home') }}" class="text-white font-bold text-2xl flex items-center">
-                            <img src="{{ Storage::url($businessDetail->logo_white) }}" alt="Logo" class="h-10">
+                            <img src="{{ $businessDetail ? Storage::url($businessDetail->logo_white) : '' }}"
+                                alt="Logo" class="h-10">
                             {{-- <img src="/assets/image/logo-white.png" alt="Logo" class="h-10"> --}}
                         </a>
                     </div>
@@ -186,31 +187,36 @@
                         <!-- Replace with your actual logo -->
                         <div class="flex items-center">
                             <a href="{{ route('home') }}" class="rounded-lg">
-                                <img src="{{ Storage::url($businessDetail->logo_white) }}" alt="Company Logo" class="h-16">
+                                <img src="{{ $businessDetail ? Storage::url($businessDetail->logo_white) : '' }}"
+                                    alt="Company Logo" class="h-16">
                             </a>
                         </div>
                     </div>
 
                     <!-- Company Description -->
                     <p class="text-white">
-                      {!! $businessDetail->footer_description !!}
+                        {!! $businessDetail ? $businessDetail->footer_description: '' !!}
                     </p>
 
                     <!-- Social Media Links -->
                     <div class="flex space-x-4 mb-6 mt-6">
-                        <a href="{{ $businessDetail->facebook }}" class="text-white hover:text-white transition-colors duration-300">
+                        <a href="{{ $businessDetail ? $businessDetail->facebook:'' }}"
+                            class="text-white hover:text-white transition-colors duration-300">
                             <span class="sr-only">Facebook</span>
                             <img src="/assets/icon/facebook.svg" alt="" class="h-6 w-6">
                         </a>
-                        <a href="{{ $businessDetail->instagram }}" class="text-white hover:text-white transition-colors duration-300">
+                        <a href="{{ $businessDetail ?$businessDetail->instagram:'' }}"
+                            class="text-white hover:text-white transition-colors duration-300">
                             <span class="sr-only">Instagram</span>
                             <img src="/assets/icon/instagram.svg" alt="" class="h-6 w-6">
                         </a>
-                        <a href="{{ $businessDetail->youtube }}" class="text-white hover:text-white transition-colors duration-300">
+                        <a href="{{ $businessDetail ?$businessDetail->youtube:'' }}"
+                            class="text-white hover:text-white transition-colors duration-300">
                             <span class="sr-only">Youtube</span>
                             <img src="/assets/icon/youtube.svg" alt="" class="h-6 w-6">
                         </a>
-                        <a href="{{ $businessDetail->tiktok }}" class="text-white hover:text-white transition-colors duration-300">
+                        <a href="{{ $businessDetail ?$businessDetail->tiktok:'' }}"
+                            class="text-white hover:text-white transition-colors duration-300">
                             <span class="sr-only">TikTok</span>
                             <img src="/assets/icon/tiktok.svg" alt="" class="h-6 w-6">
                         </a>
@@ -226,15 +232,18 @@
                                 class="text-white hover:text-white transition-colors duration-300">Home</a>
                         </li>
                         <li>
-                            <a href="{{ route('product') }}" class="text-white hover:text-white transition-colors duration-300">Buy
+                            <a href="{{ route('product') }}"
+                                class="text-white hover:text-white transition-colors duration-300">Buy
                                 Equipment</a>
                         </li>
                         <li>
-                            <a href="{{ route('sell-equipment') }}" class="text-white hover:text-white transition-colors duration-300">Sell
+                            <a href="{{ route('sell-equipment') }}"
+                                class="text-white hover:text-white transition-colors duration-300">Sell
                                 Equipment</a>
                         </li>
                         <li>
-                            <a href="{{ route('about') }}" class="text-white hover:text-white transition-colors duration-300">About
+                            <a href="{{ route('about') }}"
+                                class="text-white hover:text-white transition-colors duration-300">About
                                 Us</a>
                         </li>
                         <li>
@@ -278,20 +287,20 @@
                         <li class="flex items-start">
                             <img src="/assets/icon/location.svg" alt="" class="h-6 w-6 mr-3">
                             <span class="text-white">
-                                {{ $businessDetail->address }}
+                                {{ $businessDetail ?$businessDetail->address:'' }}
                             </span>
                         </li>
                         <li class="flex items-center">
                             <img src="/assets/icon/phone.svg" alt="" class="h-6 w-6 mr-3">
-                            <span class="text-white">{{ $businessDetail->phone }}</span>
+                            <span class="text-white">{{  $businessDetail ?$businessDetail->phone:'' }}</span>
                         </li>
                         <li class="flex items-center">
                             <img src="/assets/icon/mail.svg" alt="" class="h-6 w-6 mr-3">
-                            <span class="text-white">{{ $businessDetail->email }}</span>
+                            <span class="text-white">{{  $businessDetail ?$businessDetail->email:'' }}</span>
                         </li>
                         <li class="flex items-center">
                             <img src="/assets/icon/clock.svg" alt="" class="h-6 w-6 mr-3">
-                            <span class="text-white">{{ $businessDetail->working_hours }}</span>
+                            <span class="text-white">{{  $businessDetail ?$businessDetail->working_hours:'' }}</span>
                         </li>
                     </ul>
                 </div>
@@ -309,7 +318,8 @@
                     <div class="md:w-1/2">
                         <form class="flex sm:flex-row" action="{{ route('search') }}" method="GET">
                             <div class="relative flex-grow">
-                                <input type="text" placeholder="Search for equipment by name..." name="SearchQuery"
+                                <input type="text" placeholder="Search for equipment by name..."
+                                    name="SearchQuery"
                                     class="w-full px-4 py-3 pl-10 rounded-l-md bg-gray-800 border border-r-0 border-gray-700 text-white focus:outline-none">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400"

@@ -12,21 +12,23 @@
             </div>
 
             <!-- Category Navigation -->
-            <div class="custom-scroll overflow-x-auto mb-12">
-                <div class="flex gap-4 justify-start px-4 whitespace-nowrap py-2">
-                    <a href="{{ route('product') }}"
-                        class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-hover-primary transition-colors duration-300">
-                        All Products
-                    </a>
-                    @foreach ($categories as $category)
-                        <a href="{{ route('category-wise-product', $category->slug) }}"
-                            class="bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300">
-                            {{ $category->title }}
+            @if (!empty($categories))
+                <div class="custom-scroll overflow-x-auto mb-12">
+                    <div class="flex gap-4 justify-start px-4 whitespace-nowrap py-2">
+                        <a href="{{ route('product') }}"
+                            class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-hover-primary transition-colors duration-300">
+                            All Products
                         </a>
-                    @endforeach
+                        @foreach ($categories as $category)
+                            <a href="{{ route('category-wise-product', $category->slug) }}"
+                                class="bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300">
+                                {{ $category->title }}
+                            </a>
+                        @endforeach
 
+                    </div>
                 </div>
-            </div>
+            @endif
 
 
 

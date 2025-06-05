@@ -18,6 +18,10 @@ class SeoContentResource extends Resource
     protected static ?string $model = SeoContent::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-magnifying-glass';
+    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationLabel = 'SEO Content';
+    protected static ?string $modelLabel = 'SEO Content';
+    protected static ?int $navigationSort = 6;
 
     public static function form(Form $form): Form
     {

@@ -23,7 +23,7 @@ class ProductResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
     protected static ?string $navigationGroup = 'Equipment Management';
     protected static ?string $navigationLabel = 'Equipments';
-    protected static ?string $modelLabel = 'Listed Equipments';
+    protected static ?string $modelLabel = 'Equipments';
     protected static ?int $navigationSort = 2;
 
 

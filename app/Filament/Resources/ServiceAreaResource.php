@@ -17,7 +17,11 @@ class ServiceAreaResource extends Resource
 {
     protected static ?string $model = ServiceArea::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-map-pin';
+    protected static ?string $navigationGroup = 'Home page';
+    protected static ?string $navigationLabel = 'Service Areas';
+    protected static ?string $modelLabel = 'Service Area';
+    protected static ?int $navigationSort = 7;
 
     public static function form(Form $form): Form
     {

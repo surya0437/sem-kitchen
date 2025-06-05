@@ -18,6 +18,10 @@ class OurClientResource extends Resource
     protected static ?string $model = OurClient::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationGroup = 'Home page';
+    protected static ?string $navigationLabel = 'Our Clients';
+    protected static ?string $modelLabel = 'Client';
+    protected static ?int $navigationSort = 8;
 
     public static function form(Form $form): Form
     {

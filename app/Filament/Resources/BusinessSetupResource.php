@@ -18,7 +18,7 @@ class BusinessSetupResource extends Resource
 {
     protected static ?string $model = BusinessSetup::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office';
     protected static ?string $navigationGroup = 'Settings';
     protected static ?string $navigationLabel = 'Business Setup';
     protected static ?string $modelLabel = 'Business Setup';

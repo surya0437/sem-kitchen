@@ -16,8 +16,11 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class InquiryResource extends Resource
 {
     protected static ?string $model = Inquiry::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-question-mark-circle';
+    protected static ?string $navigationGroup = 'Home page';
+    protected static ?string $navigationLabel = 'Inquiries';
+    protected static ?string $modelLabel = 'Inquiry';
+    protected static ?int $navigationSort = 12;
 
     public static function form(Form $form): Form
     {
@@ -55,7 +58,7 @@ class InquiryResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('subject')
                     ->searchable(),
-                    Tables\Columns\TextColumn::make('message')
+                Tables\Columns\TextColumn::make('message')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -73,8 +76,7 @@ class InquiryResource extends Resource
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                ]),
+                Tables\Actions\BulkActionGroup::make([]),
             ]);
     }
 

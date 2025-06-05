@@ -17,7 +17,11 @@ class FaqResource extends Resource
 {
     protected static ?string $model = Faq::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-question-mark-circle';
+    protected static ?string $navigationGroup = 'Home page';
+    protected static ?string $navigationLabel = 'FAQs';
+    protected static ?string $modelLabel = 'FAQ';
+    protected static ?int $navigationSort = 10;
 
     public static function form(Form $form): Form
     {
@@ -64,8 +68,7 @@ class FaqResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                ]),
+                Tables\Actions\BulkActionGroup::make([]),
             ]);
     }
 
