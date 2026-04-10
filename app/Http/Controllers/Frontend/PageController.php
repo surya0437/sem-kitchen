@@ -52,7 +52,7 @@ class PageController extends Controller
             ->whereHas('category', function ($query) {
                 $query->where('is_active', 1);
             })
-            ->paginate(8);
+            ->paginate(9);
 
         return view('pages.frontend.product', compact('categories', 'products'));
     }
@@ -67,8 +67,6 @@ class PageController extends Controller
             ->limit(4)
             ->get();
 
-
-        // return $product;
         return view('pages.frontend.single-product', compact('product', 'randomProducts'));
     }
     public function categoryWiseProduct($slug)
@@ -100,7 +98,7 @@ class PageController extends Controller
     {
         $query = $request->SearchQuery;
         $categories = Category::where('is_active', 1)->get();
-        $products = Product::where('name', 'like', '%' . $query . '%')->where('is_active', 1)->paginate(8);
+        $products = Product::where('name', 'like', '%' . $query . '%')->where('is_active', 1)->paginate(9);
         return view('pages.frontend.search', compact('products', 'categories'));
     }
 }

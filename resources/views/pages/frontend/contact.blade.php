@@ -1,5 +1,5 @@
 <x-frontend-layout :pageTitle="'Contact Us'">
-    <!-- Hero Section -->
+
     <section class="bg-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
@@ -16,11 +16,9 @@
         </div>
     </section>
 
-    <!-- Contact Information Section -->
     <section class="py-16 bg-white my-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Contact Details -->
                 <div class="bg-gray-50 rounded-lg p-8 shadow-sm">
                     <h2 class="text-2xl font-bold text-primary mb-6">Get In Touch</h2>
 
@@ -31,7 +29,7 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 mb-1">Our Location</h3>
-                                <p class="text-gray-600">{{ $businessDetail->address }}</p>
+                                <p class="text-gray-600">{{ $businessDetail?->address }}</p>
                             </div>
                         </div>
 
@@ -41,7 +39,7 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 mb-1">Phone Number</h3>
-                                <p class="text-gray-600">{{ $businessDetail->phone }}</p>
+                                <p class="text-gray-600">{{ $businessDetail?->phone }}</p>
                             </div>
                         </div>
 
@@ -51,7 +49,7 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 mb-1">Email Address</h3>
-                                <p class="text-gray-600">{{ $businessDetail->email }}</p>
+                                <p class="text-gray-600">{{ $businessDetail?->email }}</p>
                             </div>
                         </div>
 
@@ -61,7 +59,7 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 mb-1">Business Hours</h3>
-                                <p class="text-gray-600">{{ $businessDetail->working_hours }}</p>
+                                <p class="text-gray-600">{{ $businessDetail?->working_hours }}</p>
                             </div>
                         </div>
                     </div>
@@ -69,19 +67,19 @@
                     <div class="mt-8">
                         <h3 class="text-lg font-semibold text-primary mb-4">Connect With Us</h3>
                         <div class="flex space-x-4">
-                            <a href="{{ $businessDetail->facebook }}" target="_blank"
+                            <a href="{{ $businessDetail?->facebook }}" target="_blank"
                                 class="bg-primary rounded-full p-3 hover:bg-hover-primary transition-colors duration-300">
                                 <img src="assets/icon/facebook.svg" alt="Facebook" class="h-6 w-6">
                             </a>
-                            <a href="{{ $businessDetail->instagram }}" target="_blank"
+                            <a href="{{ $businessDetail?->instagram }}" target="_blank"
                                 class="bg-primary rounded-full p-3 hover:bg-hover-primary transition-colors duration-300">
                                 <img src="assets/icon/instagram.svg" alt="Instagram" class="h-6 w-6">
                             </a>
-                            <a href="{{ $businessDetail->youtube }}" target="_blank"
+                            <a href="{{ $businessDetail?->youtube }}" target="_blank"
                                 class="bg-primary rounded-full p-3 hover:bg-hover-primary transition-colors duration-300">
                                 <img src="assets/icon/youtube.svg" alt="YouTube" class="h-6 w-6">
                             </a>
-                            <a href="{{ $businessDetail->tiktok }}" target="_blank"
+                            <a href="{{ $businessDetail?->tiktok }}" target="_blank"
                                 class="bg-primary rounded-full p-3 hover:bg-hover-primary transition-colors duration-300">
                                 <img src="assets/icon/tiktok.svg" alt="TikTok" class="h-6 w-6">
                             </a>
@@ -166,7 +164,6 @@
         </div>
     </section>
 
-    <!-- Map Section -->
     <section class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -177,9 +174,8 @@
             </div>
 
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                <!-- Map placeholder - in a real implementation, this would be replaced with an actual map -->
                 <div class="bg-gray-200 w-full flex items-center justify-center">
-                    <iframe src="{!! $businessDetail->map_iframe !!}" width="1250" height="600" style="border:0;"
+                    <iframe src="{!! $businessDetail?->map_iframe !!}" width="1250" height="600" style="border:0;"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>

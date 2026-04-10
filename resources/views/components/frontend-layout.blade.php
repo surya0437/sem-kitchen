@@ -7,38 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEM Kitchen Equipment - {{ $pageTitle }}</title>
 
-    <!-- SEO Meta Tags -->
     <meta name="description"
         content="SEM Kitchen Equipment offers high-quality commercial kitchen solutions, including ovens, refrigerators, and custom fabrication.">
     <meta name="keywords"
         content="kitchen equipment, commercial kitchen, SEM kitchen, food service equipment, restaurant equipment">
     <meta name="author" content="SEM Kitchen Equipment">
-    <link rel="canonical" href="https://example.com/post/post-title"> <!-- Replace with actual URL -->
+    <link rel="canonical" href="https://example.com/post/post-title">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:title" content="SEM Kitchen Equipment - Home">
     <meta property="og:description"
         content="Explore premium kitchen equipment solutions tailored for restaurants and commercial kitchens.">
-    <meta property="og:image" content="https://example.com/images/og-image.jpg"> <!-- Replace with actual image URL -->
-    <meta property="og:url" content="https://example.com/post/post-title"> <!-- Replace with actual URL -->
+    <meta property="og:image" content="https://example.com/images/og-image.jpg">
+    <meta property="og:url" content="https://example.com/post/post-title">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SEM Kitchen Equipment - Home">
     <meta name="twitter:description"
         content="Explore premium kitchen equipment solutions tailored for restaurants and commercial kitchens.">
-    <meta name="twitter:image" content="https://example.com/images/og-image.jpg"> <!-- Replace with actual image URL -->
+    <meta name="twitter:image" content="https://example.com/images/og-image.jpg">
 
-    <!-- Favicon -->
     <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
-
-    <!-- Styles and Scripts -->
     <script src="/assets/js/tailwind.js"></script>
     <link rel="stylesheet" href="/assets/css/swiper.css">
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -67,11 +61,9 @@
                         <a href="{{ route('home') }}" class="text-white font-bold text-2xl flex items-center">
                             <img src="{{ $businessDetail ? Storage::url($businessDetail->logo_white) : '' }}"
                                 alt="Logo" class="h-10">
-                            {{-- <img src="/assets/image/logo-white.png" alt="Logo" class="h-10"> --}}
                         </a>
                     </div>
 
-                    <!-- Desktop Navigation -->
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <a href="{{ route('home') }}"
@@ -95,13 +87,8 @@
                     </div>
                 </div>
 
-                <!-- Right side buttons -->
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
-                        <!-- <button
-                            class="text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300 mr-2 hover:border">
-                            Login
-                        </button> -->
                         <a href="/admin" target="_blank">
                             <button
                                 class="bg-white text-primary hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-medium transition duration-300">
@@ -122,7 +109,6 @@
             </div>
         </div>
 
-        <!-- drawer component -->
         <div id="drawer"
             class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80"
             tabindex="-1" aria-labelledby="drawer-right-label">
@@ -135,7 +121,6 @@
                 <span class="sr-only">Close menu</span>
             </button>
             <div class="flex flex-col mt-4 space-y-2">
-                <!-- Navigation Links -->
                 <a href="{{ route('home') }}"
                     class="text-primary hover:border-b hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ Request::routeIs('home') ? 'border-b border-primary' : '' }}">
                     Home
@@ -157,11 +142,7 @@
                     class="text-primary px-3 py-2 rounded-md text-sm font-medium {{ Request::routeIs('contact') ? 'border-b border-primary' : '' }}">Contact
                     Us</a>
 
-                <!-- Action Buttons -->
                 <div class="flex pt-3 px-3">
-                    <!-- <button class="px-4 py-2 rounded-md text-sm font-medium border text-primary">
-                        Login
-                    </button> -->
                     <a href="">
                         <button
                             class="bg-primary text-white hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-medium">
@@ -176,15 +157,10 @@
     {{ $slot }}
 
     <footer class="bg-primary text-white">
-        <!-- <footer class="bg-primary text-white"> -->
-        <!-- Main Footer Content -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Company Info Column -->
                 <div class="col-span-1 md:col-span-2 lg:col-span-1">
-                    <!-- Company Logo -->
                     <div class="mb-6">
-                        <!-- Replace with your actual logo -->
                         <div class="flex items-center">
                             <a href="{{ route('home') }}" class="rounded-lg">
                                 <img src="{{ $businessDetail ? Storage::url($businessDetail->logo_white) : '' }}"
@@ -193,29 +169,27 @@
                         </div>
                     </div>
 
-                    <!-- Company Description -->
                     <p class="text-white">
-                        {!! $businessDetail ? $businessDetail->footer_description: '' !!}
+                        {!! $businessDetail ? $businessDetail->footer_description : '' !!}
                     </p>
 
-                    <!-- Social Media Links -->
                     <div class="flex space-x-4 mb-6 mt-6">
-                        <a href="{{ $businessDetail ? $businessDetail->facebook:'' }}"
+                        <a href="{{ $businessDetail ? $businessDetail->facebook : '' }}" target="_blank"
                             class="text-white hover:text-white transition-colors duration-300">
                             <span class="sr-only">Facebook</span>
                             <img src="/assets/icon/facebook.svg" alt="" class="h-6 w-6">
                         </a>
-                        <a href="{{ $businessDetail ?$businessDetail->instagram:'' }}"
+                        <a href="{{ $businessDetail ? $businessDetail->instagram : '' }}" target="_blank"
                             class="text-white hover:text-white transition-colors duration-300">
                             <span class="sr-only">Instagram</span>
                             <img src="/assets/icon/instagram.svg" alt="" class="h-6 w-6">
                         </a>
-                        <a href="{{ $businessDetail ?$businessDetail->youtube:'' }}"
+                        <a href="{{ $businessDetail ? $businessDetail->youtube : '' }}" target="_blank"
                             class="text-white hover:text-white transition-colors duration-300">
                             <span class="sr-only">Youtube</span>
                             <img src="/assets/icon/youtube.svg" alt="" class="h-6 w-6">
                         </a>
-                        <a href="{{ $businessDetail ?$businessDetail->tiktok:'' }}"
+                        <a href="{{ $businessDetail ? $businessDetail->tiktok : '' }}" target="_blank"
                             class="text-white hover:text-white transition-colors duration-300">
                             <span class="sr-only">TikTok</span>
                             <img src="/assets/icon/tiktok.svg" alt="" class="h-6 w-6">
@@ -223,7 +197,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Links Column -->
                 <div>
                     <h3 class="text-lg font-semibold text-white mb-6">Quick Links</h3>
                     <ul class="space-y-4">
@@ -254,7 +227,6 @@
                     </ul>
                 </div>
 
-                <!-- Services Column -->
                 <div>
                     <h3 class="text-lg font-semibold text-white mb-6">Our Services</h3>
                     <ul class="space-y-4">
@@ -280,34 +252,32 @@
                     </ul>
                 </div>
 
-                <!-- Contact Info Column -->
                 <div>
                     <h3 class="text-lg font-semibold text-white mb-6">Contact Us</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <img src="/assets/icon/location.svg" alt="" class="h-6 w-6 mr-3">
                             <span class="text-white">
-                                {{ $businessDetail ?$businessDetail->address:'' }}
+                                {{ $businessDetail ? $businessDetail->address : '' }}
                             </span>
                         </li>
                         <li class="flex items-center">
                             <img src="/assets/icon/phone.svg" alt="" class="h-6 w-6 mr-3">
-                            <span class="text-white">{{  $businessDetail ?$businessDetail->phone:'' }}</span>
+                            <span class="text-white">{{ $businessDetail ? $businessDetail->phone : '' }}</span>
                         </li>
                         <li class="flex items-center">
                             <img src="/assets/icon/mail.svg" alt="" class="h-6 w-6 mr-3">
-                            <span class="text-white">{{  $businessDetail ?$businessDetail->email:'' }}</span>
+                            <span class="text-white">{{ $businessDetail ? $businessDetail->email : '' }}</span>
                         </li>
                         <li class="flex items-center">
                             <img src="/assets/icon/clock.svg" alt="" class="h-6 w-6 mr-3">
-                            <span class="text-white">{{  $businessDetail ?$businessDetail->working_hours:'' }}</span>
+                            <span class="text-white">{{ $businessDetail ? $businessDetail->working_hours : '' }}</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Newsletter Subscription -->
         <div class="border-t border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div class="md:flex md:items-center md:justify-between">
@@ -339,14 +309,11 @@
             </div>
         </div>
 
-        <!-- Copyright -->
         <div class="bg-gray-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                <!-- <div class="md:flex md:items-center md:justify-between"> -->
                 <div class="text-sm text-white text-center">
-                    &copy; {{ date('Y') }} SEM. All rights reserved.
+                    &copy; {{ date('Y') }} {{ $businessDetail?->name }}. All rights reserved.
                 </div>
-
             </div>
         </div>
     </footer>
@@ -359,7 +326,7 @@
 
     <div id=""
         class="fixed bottom-20 right-0 p-2 z-50 rounded transition-transform duration-300 hover:translate-y-2">
-        <a href="https://wa.me/9779844532500" target="_blank"><img src="/assets/image/whatsapp.png" alt=""
+        <a href="https://wa.me/{{ $businessDetail?->phone }}" target="_blank"><img src="/assets/image/whatsapp.png" alt=""
                 class="h-16 w-16"></a>
     </div>
 

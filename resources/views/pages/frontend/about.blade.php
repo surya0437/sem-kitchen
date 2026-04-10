@@ -1,13 +1,12 @@
 <x-frontend-layout :pageTitle="'About Us'">
 
-    <!-- Hero Section -->
     <section class="bg-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About {{ $businessDetail->name }}</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About {{ $businessDetail?->name }}</h1>
                     <p class="text-lg text-gray-600 mb-6">
-                        {!! $businessDetail->company_description !!}
+                        {!! $businessDetail?->company_description !!}
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="{{ route('product') }}"
@@ -21,14 +20,13 @@
                     </div>
                 </div>
                 <div class="rounded-lg overflow-hidden shadow-xl">
-                    <img src="{{ Storage::url($businessDetail->thumbnail_image) }}" alt="Our Showroom"
+                    <img src="{{ Storage::url($businessDetail?->thumbnail_image) }}" alt="Our Showroom"
                         class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Story Section -->
     <section class="bg-white py-16 my-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -81,7 +79,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="bg-white py-16 my-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -157,49 +154,50 @@
             </div>
         </div>
     </section>
-
-    <!-- Team Section -->
-    <section class="bg-white py-16 mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <div class="flex items-center justify-center space-x-2">
-                    <span class="bg-primary h-1 w-5 mb-4"></span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Meet Our Team</h2>
+    @if (count($teams) > 0)
+        <section class="bg-white py-16 mt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="bg-primary h-1 w-5 mb-4"></span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Meet Our Team</h2>
+                    </div>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Experienced professionals dedicated to providing excellent service
+                    </p>
                 </div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Experienced professionals dedicated to providing excellent service
-                </p>
-            </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-12">
 
-                @foreach ($teams as $team)
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="{{ Storage::url($team->image) }}" alt="Team Member" class="w-full h-64 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">{{ $team->name }}</h3>
-                            <p class="text-primary font-medium mb-3">{{ $team->position }}</p>
-                            <p class="text-gray-600 mb-4">{!! $team->description !!}</p>
-                            <div class="flex space-x-3">
-                                <a href="{{ $team->facebook }}"
-                                    class="bg-primary rounded-full p-2 hover:bg-hover-primary transition-colors duration-300">
-                                    <img src="assets/icon/facebook.svg" alt="Facebook" class="h-5 w-5">
-                                </a>
-                                <a href="mailto:{{ $team->email }}"
-                                    class="bg-primary rounded-full p-2 hover:bg-hover-primary transition-colors duration-300">
-                                    <img src="assets/icon/mail.svg" alt="email" class="h-5 w-5">
-                                </a>
-                                <a href="tel:{{ $team->phone }}"
-                                    class="bg-primary rounded-full p-2 hover:bg-hover-primary transition-colors duration-300">
-                                    <img src="assets/icon/phone.svg" alt="phone" class="h-5 w-5">
-                                </a>
+                    @foreach ($teams as $team)
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <img src="{{ Storage::url($team->image) }}" alt="Team Member"
+                                class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-1">{{ $team->name }}</h3>
+                                <p class="text-primary font-medium mb-3">{{ $team->position }}</p>
+                                <p class="text-gray-600 mb-4">{!! $team->description !!}</p>
+                                <div class="flex space-x-3">
+                                    <a href="{{ $team->facebook }}"
+                                        class="bg-primary rounded-full p-2 hover:bg-hover-primary transition-colors duration-300">
+                                        <img src="assets/icon/facebook.svg" alt="Facebook" class="h-5 w-5">
+                                    </a>
+                                    <a href="mailto:{{ $team->email }}"
+                                        class="bg-primary rounded-full p-2 hover:bg-hover-primary transition-colors duration-300">
+                                        <img src="assets/icon/mail.svg" alt="email" class="h-5 w-5">
+                                    </a>
+                                    <a href="tel:{{ $team->phone }}"
+                                        class="bg-primary rounded-full p-2 hover:bg-hover-primary transition-colors duration-300">
+                                        <img src="assets/icon/phone.svg" alt="phone" class="h-5 w-5">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
 </x-frontend-layout>

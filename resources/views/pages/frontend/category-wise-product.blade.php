@@ -2,7 +2,7 @@
 
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Page Header -->
+
             <div class="text-center mb-12">
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Professional Kitchen Equipment</h1>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -11,7 +11,6 @@
                 </p>
             </div>
 
-            <!-- Category Navigation -->
             <div class="custom-scroll overflow-x-auto mb-12">
                 <div class="flex gap-4 justify-start px-4 whitespace-nowrap py-2">
                     <a href="{{ route('product') }}"
@@ -27,13 +26,9 @@
                 </div>
             </div>
 
-
-
-            <!-- Category 1: Cooking Equipment -->
             <div class="mb-16">
-                <!-- Product Cards -->
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                     @foreach ($products as $product)
                         <a href="{{ route('single-product', $product->slug) }}"
                             class="group bg-white rounded-lg shadow-md cursor-pointer overflow-hidden border border-gray-100 transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
@@ -62,12 +57,10 @@
                 </div>
             </div>
 
-            <!-- Pagination -->
             <div class="flex justify-center mt-12">
                 {{ $products->links('components.custom-pagination', ['products' => $products]) }}
             </div>
 
-            <!-- Product Benefits -->
             <div class="mt-16 bg-gray-50 rounded-lg p-8 shadow-sm">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="flex items-start">
@@ -126,7 +119,5 @@
             </div>
         </div>
     </section>
-
-
 
 </x-frontend-layout>

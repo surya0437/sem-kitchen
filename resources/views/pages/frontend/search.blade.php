@@ -2,7 +2,6 @@
 
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Page Header -->
             <div class="text-center mb-12">
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Professional Kitchen Equipment</h1>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -11,7 +10,6 @@
                 </p>
             </div>
 
-            <!-- Category Navigation -->
             <div class="custom-scroll overflow-x-auto mb-12">
                 <div class="flex gap-4 justify-start px-4 whitespace-nowrap py-2">
                     <a href="{{ route('product') }}"
@@ -28,11 +26,7 @@
                 </div>
             </div>
 
-
-
-            <!-- Category 1: Cooking Equipment -->
             <div class="mb-16">
-                <!-- Product Cards -->
 
                 @if (count($products) == 0)
                     <div
@@ -89,7 +83,6 @@
 
             </div>
 
-            <!-- Pagination -->
             <div class="flex justify-center mt-12">
                 {{ $products->links('components.custom-pagination', ['products' => $products]) }}
             </div>

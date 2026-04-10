@@ -4,7 +4,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div id="controls-carousel" class="relative w-full h-96 lg:h-[600px]" data-carousel="slide">
 
-                <!-- Carousel wrapper -->
                 <div class="relative h-full overflow-hidden rounded-lg">
 
                     @foreach ($carousels as $carousel)
@@ -36,7 +35,6 @@
 
                 </div>
 
-                <!-- Slider controls -->
                 <button type="button"
                     class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     data-carousel-prev>
@@ -62,7 +60,6 @@
                     </span>
                 </button>
 
-                <!-- Slider indicators -->
                 <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
                     @foreach ($carousels as $carousel)
                         <button type="button" class="w-3 h-3 rounded-full bg-white/50"
@@ -88,9 +85,8 @@
                 </p>
             </div>
 
-            <!-- Service Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
                 <div
                     class="bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
                     <div class="h-48 bg-primary flex items-center justify-center">
@@ -110,7 +106,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card 2 -->
                 <div
                     class="bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
                     <div class="h-48 bg-primary flex items-center justify-center">
@@ -130,7 +125,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card 3 -->
                 <div
                     class="bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
                     <div class="h-48 bg-primary flex items-center justify-center">
@@ -150,7 +144,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card 4 -->
                 <div
                     class="bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
                     <div class="h-48 bg-primary flex items-center justify-center">
@@ -170,7 +163,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card 5 -->
                 <div
                     class="bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
                     <div class="h-48 bg-primary flex items-center justify-center">
@@ -189,7 +181,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card 6 -->
                 <div
                     class="bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
                     <div class="h-48 bg-primary flex items-center justify-center">
@@ -210,18 +201,18 @@
                 </div>
             </div>
 
-            <!-- CTA Button -->
             <!-- <div class="text-center mt-12">
                 <a href="#" class="inline-block bg-primary hover:bg-hover-primary text-white px-6 py-3 rounded-md text-lg font-medium transition duration-300">
                     View All Services
                 </a>
             </div> -->
+
         </div>
     </section>
 
     <section class="my-16 py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Heading -->
+
             <div class="text-center mb-12">
                 <div class="flex items-center justify-center space-x-2">
                     <span class="bg-primary h-1 w-5 mb-4"></span>
@@ -235,7 +226,6 @@
 
             <div class="flex flex-col lg:flex-row gap-8 items-start">
 
-                <!-- Service areas list -->
                 <div class="w-full">
                     <div class="bg-gray-50 rounded-lg shadow-md p-6">
                         <h3 class="text-2xl font-bold text-gray-900 mb-6">Regions We Cover</h3>
@@ -260,7 +250,6 @@
 
                         </div>
 
-                        <!-- Additional area info -->
                         <div class="mt-6 bg-white p-4 rounded-md shadow-sm">
                             <h4 class="text-lg font-semibold text-gray-900 flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary"
@@ -289,7 +278,7 @@
 
     <section class="my-16 py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Heading -->
+
             <div class="text-center mb-12">
                 <div class="flex items-center justify-center space-x-2">
                     <span class="bg-primary h-1 w-5 mb-4"></span>
@@ -300,9 +289,8 @@
                 </p>
             </div>
 
-            <!-- Logo Carousel -->
             <div class="relative overflow-hidden">
-                <!-- First row of logos -->
+
                 <div class="logo-slide-track flex items-center gap-16 py-8" id="track1">
                     @for ($i = 0; $i < 20; $i++)
                         @foreach ($ourClients as $ourClient)
@@ -315,7 +303,6 @@
 
                 </div>
 
-                <!-- Second row of logos moving in opposite direction -->
                 <div class="logo-slide-track flex items-center gap-16 py-8" id="track2">
                     @for ($i = 0; $i < 20; $i++)
                         @foreach ($ourClients as $ourClient)
@@ -328,7 +315,6 @@
                 </div>
             </div>
 
-            <!-- Trust badge -->
             <div class="mt-12 text-center">
                 <span
                     class="inline-flex items-center px-4 py-2 rounded-full bg-gray-50 text-gray-700 text-sm font-medium">
@@ -344,6 +330,7 @@
     </section>
 
     <section class="mt-16 py-16 bg-white">
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <div class="flex items-center justify-center space-x-2">
@@ -358,7 +345,6 @@
 
             <div class="relative mt-8">
 
-                <!-- Swiper Container -->
                 <div class="swiper mySwiper py-4 px-3">
                     <div class="swiper-wrapper">
                         @foreach ($testimonials as $testimonial)
@@ -411,7 +397,8 @@
                                 <blockquote class="text-gray-600 italic mb-4">
                                     {!! $testimonial->message !!}
                                 </blockquote>
-                                <div class="border-t border-gray-100 pt-4 mt-4">
+
+                                <div class="border-t border-gray-100 pt-4 mt-4 flex gap-4">
                                     <p class="text-sm text-gray-500">Service: <span
                                             class="font-medium">{{ $testimonial->service }}</span></p>
                                     <p class="text-sm text-gray-500">Location: <span

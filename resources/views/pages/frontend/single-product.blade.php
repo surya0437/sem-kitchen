@@ -1,17 +1,13 @@
 <x-frontend-layout :pageTitle="'Product Details'">
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Product Detail Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <!-- Product Images Section -->
                 <div class="space-y-4">
-                    <!-- Main Product Image -->
                     <div class="border border-gray-200 rounded-lg overflow-hidden">
                         <img src="{{ Storage::url($product->image[0]) }}" alt="Professional Gas Range"
                             class="w-full h-auto object-cover" id="main-image">
                     </div>
 
-                    <!-- Thumbnail Images -->
                     <div class="grid grid-cols-4 gap-4">
                         @foreach ($product->image as $image)
                             @if ($loop->first)
@@ -28,9 +24,7 @@
                     </div>
                 </div>
 
-                <!-- Product Details Section -->
                 <div class="space-y-6">
-                    <!-- Product Title & Basic Info -->
                     <div>
                         <h1 class="text-3xl font-bold text-primary">{{ $product->name }}</h1>
                         <div class="flex items-center mt-2">
@@ -38,7 +32,6 @@
                         </div>
                     </div>
 
-                    <!-- Product Description -->
                     <div>
                         <h2 class="text-lg font-medium text-gray-900">Description</h2>
                         <p class="mt-2 text-gray-600 text-justify">
@@ -46,9 +39,7 @@
                         </p>
                     </div>
 
-                    <!-- Additional Information -->
                     <div class="space-y-4">
-                        <!-- Key Features -->
                         <div>
                             <h2 class="text-lg font-medium text-gray-900">Key Features</h2>
                             <ul class="mt-2 space-y-2">
@@ -65,7 +56,6 @@
                 </div>
             </div>
 
-            <!-- Related Products -->
             <div class="mt-16">
                 <h2 class="text-2xl font-bold text-primary mb-8">You May Also Like</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

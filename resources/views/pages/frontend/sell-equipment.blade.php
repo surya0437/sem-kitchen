@@ -21,7 +21,7 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                 <div class="bg-gray-50 rounded-lg p-8 text-center shadow-sm">
                     <div class="bg-primary rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
                         <span class="text-white text-2xl font-bold">1</span>
@@ -58,7 +58,6 @@
         </div>
     </section>
 
-    <!-- Equipment We Buy Section -->
     <section class="py-16 bg-white my-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -68,9 +67,9 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
                 <div
-                    class="g-white p-6 rounded-lg shadow-md transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
+                    class="g-white p-6 rounded-lg shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
                     <h3 class="text-lg font-semibold text-gray-900 mb-3">Cooking Equipment</h3>
                     <ul class="text-gray-600 space-y-2">
                         <li>• Commercial Ranges & Ovens</li>
@@ -202,7 +201,7 @@
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name
                                     <span class="text-red-500">*</span></label>
-                                <input type="text" id="name" name="name"
+                                <input type="text" id="name" name="name" value="{{ old('name') }}"
                                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
                                 @error('name')
                                     <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
@@ -211,7 +210,7 @@
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone
                                     Number <span class="text-red-500">*</span></label>
-                                <input type="tel" id="phone" name="phone"
+                                <input type="tel" id="phone" name="phone" value="{{ old('phone') }}"
                                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
                                 @error('phone')
                                     <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
@@ -222,7 +221,7 @@
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email
                                 Address<span class="text-red-500">*</span></label>
-                            <input type="email" id="email" name="email"
+                            <input type="email" id="email" name="email" value="{{ old('email') }}"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
                             @error('email')
                                 <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
@@ -247,7 +246,7 @@
                         <div>
                             <label for="equipment-name" class="block text-sm font-medium text-gray-700 mb-1">Equipment
                                 Name <span class="text-red-500">*</span></label>
-                            <input type="text" id="equipment-name" name="equipmentName"
+                            <input type="text" id="equipment-name" name="equipmentName" value="{{ old('equipmentName') }}"
                                 placeholder="Brand, Model, Size, etc."
                                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
                             @error('equipmentName')

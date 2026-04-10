@@ -2,7 +2,7 @@
 
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Page Header -->
+
             <div class="text-center mb-12">
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Professional Kitchen Equipment</h1>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -11,7 +11,6 @@
                 </p>
             </div>
 
-            <!-- Category Navigation -->
             @if (!empty($categories))
                 <div class="custom-scroll overflow-x-auto mb-12">
                     <div class="flex gap-4 justify-start px-4 whitespace-nowrap py-2">
@@ -30,13 +29,9 @@
                 </div>
             @endif
 
-
-
-            <!-- Category 1: Cooking Equipment -->
             <div class="mb-16">
-                <!-- Product Cards -->
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                     @foreach ($products as $product)
                         <a href="{{ route('single-product', $product->slug) }}"
                             class="group bg-white rounded-lg shadow-md cursor-pointer overflow-hidden border border-gray-100 transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
@@ -44,12 +39,12 @@
                                 class="w-full h-64 object-cover">
                             <div class="p-4 space-y-2">
                                 <h3 class="text-lg font-bold text-gray-900">{{ $product->name }}</h3>
-                                <p class="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded w-fit">
-                                    Category: {{ $product->category->title }}</p>
-                                <p class="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded w-fit">In
-                                    Stock: {{ $product->in_stock }}</p>
+                                <span class="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded w-fit">
+                                    Category: {{ $product->category->title }}</span>
+                                <span class="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded w-fit">In
+                                    Stock: {{ $product->in_stock }}</span>
                                 <p class="text-gray-600 text-sm mb-4">
-                                    {{ \Illuminate\Support\Str::limit(strip_tags($product->description), 50) }}
+                                    {{ Str::limit(strip_tags($product->description), 50) }}
                                 </p>
 
                             </div>
@@ -65,12 +60,10 @@
                 </div>
             </div>
 
-            <!-- Pagination -->
             <div class="flex justify-center mt-12">
                 {{ $products->links('components.custom-pagination', ['products' => $products]) }}
             </div>
 
-            <!-- Product Benefits -->
             <div class="mt-16 bg-gray-50 rounded-lg p-8 shadow-sm">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="flex items-start">
@@ -129,7 +122,5 @@
             </div>
         </div>
     </section>
-
-
 
 </x-frontend-layout>

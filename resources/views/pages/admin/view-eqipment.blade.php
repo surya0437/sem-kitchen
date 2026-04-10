@@ -1,180 +1,216 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-frontend-layout :pageTitle="'Admin - Equipment Request'">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - View Equipment Request</title>
-    <script src="/assets/js/tailwind.js"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
-
-</head>
-
-<body>
-    <div class="min-h-screen flex flex-col">
-        <!-- Header -->
-        <header class="bg-primary shadow">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                <div class="flex justify-between items-center">
-                    <h1 class="text-2xl font-bold text-primary">
-                        <img src="/assets/image/logo-white.png" alt="" class="h-12">
+    <section class="bg-white py-12 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900">
+                        {{ $equipment->equipment_name }}
                     </h1>
+
+                    <p class="text-sm text-gray-500 mt-1 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
+                        Submitted on {{ $equipment->created_at->format('F j, Y \\a\\t h:i A') }}
+                    </p>
+                </div>
+
+                <div class="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full w-fit">
+                    Request ID: {{ $equipment->request_number }}
                 </div>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <!-- Main Content -->
-        <main class="flex-1 py-10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Page Header -->
-                <div class="border-b border-gray-200 pb-6 mb-6 ">
-                    <div>
-                        <h2 class="text-2xl font-bold text-primary">{{ $equipment->name }}</h2>
-                        <p class="mt-1 text-sm text-gray-500">Submitted on
-                            {{ $equipment->created_at->format('F j, Y \a\t h:i A') }}
-                        </p>
-                    </div>
-                    <div class="mt-2">
-                        <span class="text-primary font-medium">Request ID: {{ $equipment->request_number }}</span>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Equipment and Seller Details -->
-                    <div class="lg:col-span-2 space-y-8">
-                        <!-- Equipment Info Card -->
-                        <div class="bg-white shadow rounded-lg p-6">
-                            <h3 class="text-lg font-medium text-primary mb-4">Equipment Information</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <div class="text-sm font-medium text-gray-500">Equipment Type</div>
-                                    <div class="mt-1 text-primary">{{ $equipment->equipment_type }}</div>
-                                </div>
-                                <div>
-                                    <div class="text-sm font-medium text-gray-500">Equipment Name</div>
-                                    <div class="mt-1 text-primary">{{ $equipment->equipment_name }}</div>
-                                </div>
-                                <div>
-                                    <div class="text-sm font-medium text-gray-500">Condition</div>
-                                    <div class="mt-1 text-primary">{{ $equipment->equipment_condition }}</div>
-                                </div>
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <div class="lg:col-span-2 space-y-8">
+
+                    <div class="bg-white border border-gray-200/70 rounded-xl shadow-sm hover:shadow-md transition p-8">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Equipment Information</h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-xs uppercase tracking-wide text-gray-400 mb-1">Equipment Type</p>
+                                <p class="text-gray-900 font-semibold">{{ $equipment->equipment_type }}</p>
+                            </div>
+
+                            <div>
+                                <p class="text-xs uppercase tracking-wide text-gray-400 mb-1">Condition</p>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-700">
+                                    {{ ucfirst(str_replace('-', ' ', $equipment->equipment_condition)) }}
+                                </span>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <p class="text-xs uppercase tracking-wide text-gray-400 mb-1">Equipment Name</p>
+                                <p class="text-gray-900 font-semibold">{{ $equipment->equipment_name }}</p>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Photos Card -->
-                        <div class="bg-white shadow rounded-lg p-6">
-                            <h3 class="text-lg font-medium text-primary mb-4">Equipment Photos</h3>
+                    <div class="bg-white border border-gray-200/70 rounded-xl shadow-sm hover:shadow-md transition p-8">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Equipment Photos</h2>
 
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        @if (count($equipment->image) > 0)
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                                 @foreach ($equipment->image as $image)
-                                    <div class="relative group cursor-pointer">
-                                        <img src="{{ Storage::url($image) }}" alt="Vehicle Front"
-                                            class="w-full h-32 rounded-lg object-cover">
-                                        <button
-                                            class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-lg transition-opacity open-modal"
-                                            data-image="{{ Storage::url($image) }}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-eye text-white w-8 h-8"
-                                                viewBox="0 0 16 16">
-                                                <path
-                                                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
-                                                <path
-                                                    d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
-                                            </svg>
-                                        </button>
+                                    <div
+                                        class="relative group cursor-pointer overflow-hidden rounded-lg border border-gray-200">
+                                        <img src="{{ Storage::url($image) }}"
+                                            class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105">
+
+                                        <div
+                                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                                            <button class="open-modal" data-image="{{ Storage::url($image) }}">
+                                                <div
+                                                    class="bg-white/20 backdrop-blur-sm p-3 rounded-full hover:scale-110 transition">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                    </svg>
+                                                </div>
+                                            </button>
+                                        </div>
                                     </div>
                                 @endforeach
-
                             </div>
-                        </div>
+                        @else
+                            <p class="text-gray-500">No images uploaded.</p>
+                        @endif
                     </div>
 
-                    <!-- Admin Actions Sidebar -->
-                    <div class="lg:col-span-1 space-y-6">
-                        <!-- Status Update Card -->
-                        <div class="bg-white shadow rounded-lg p-6">
-                            <h3 class="text-lg font-medium text-primary mb-4">Seller Information</h3>
-                            <div class="space-y-3">
-                                <div>
-                                    <div class="text-sm font-medium text-gray-500">Name</div>
-                                    <div class="mt-1 text-primary">{{ $equipment->name }}</div>
-                                </div>
-                                <div>
-                                    <div class="text-sm font-medium text-gray-500">Phone Number</div>
-                                    <div class="mt-1 text-primary">{{ $equipment->phone }}</div>
-                                </div>
-                                <div class="md:col-span-2">
-                                    <div class="text-sm font-medium text-gray-500">Email Address</div>
-                                    <div class="mt-1 text-primary">{{ $equipment->email }}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Admin Actions Card -->
-                        <div class="bg-white shadow rounded-lg p-6">
-                            <h3 class="text-lg font-medium text-primary mb-4">Actions</h3>
-                            <div class="space-y-3">
-                                <a href="mailto:{{ $equipment->email }}"
-                                    class="w-full bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-2 px-4 rounded-md transition-colors duration-300 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                    Send Email to Seller
-                                </a>
-                                <a href="tel:{{ $equipment->phone }}"
-                                    class="w-full bg-white border border-[#2a3855] hover:bg-red-50 text-[#2a3855] font-medium py-2 px-4 rounded-md transition-colors duration-300 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                    Call to Seller
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
-            </div>
-        </main>
-    </div>
 
-    <div id="imageModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
-        <div class="relative w-auto h-4/5 bg-transparent flex flex-col justify-center items-center">
-            <button id="closeModal" class="absolute top-4 right-4 text-white text-3xl font-bold">
-                &times;
-            </button>
-            <img id="modalImage" src="" alt="Preview"
-                class="max-w-full max-h-[80vh] object-contain rounded-lg">
+                <div class="space-y-6">
+
+                    <div
+                        class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 shadow-sm">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Seller Information</h2>
+
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm text-gray-500">Name</p>
+                                <p class="text-gray-900 font-medium">{{ $equipment->name }}</p>
+                            </div>
+
+                            <div>
+                                <p class="text-sm text-gray-500">Phone</p>
+                                <p class="text-gray-900 font-medium">{{ $equipment->phone }}</p>
+                            </div>
+
+                            <div>
+                                <p class="text-sm text-gray-500">Email</p>
+                                <p class="text-gray-900 font-medium">{{ $equipment->email }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Actions</h2>
+
+                        <div class="space-y-3">
+                            <a href="mailto:{{ $equipment->email }}"
+                                class="w-full border border-gray-300 hover:border-primary hover:text-primary text-gray-700 font-medium py-2.5 px-4 rounded-lg flex items-center justify-center transition">
+                                Send Email
+                            </a>
+
+                            <a href="tel:{{ $equipment->phone }}"
+                                class="w-full bg-primary hover:bg-hover-primary text-white font-medium py-2.5 px-4 rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition">
+                                Call Seller
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <div id="imageModal"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-300">
+
+        <div id="modalContent" class="relative transform scale-95 opacity-0 transition-all duration-300">
+
+            <div class="relative bg-white rounded-xl shadow-2xl p-2 border border-gray-100">
+
+                <button id="closeModal"
+                    class="absolute top-3 right-3 bg-red-500 hover:bg-black/70 text-white rounded-full p-2 backdrop-blur transition shadow-lg z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <img id="modalImage" class="max-h-[80vh] max-w-[90vw] object-contain rounded-lg" />
+            </div>
+
         </div>
     </div>
+    
+    @section('scripts')
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const modal = document.getElementById("imageModal");
+                const modalContent = document.getElementById("modalContent");
+                const modalImage = document.getElementById("modalImage");
+                const closeBtn = document.getElementById("closeModal");
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const modal = document.getElementById("imageModal");
-            const modalImage = document.getElementById("modalImage");
-            const closeModal = document.getElementById("closeModal");
-            const openModalButtons = document.querySelectorAll(".open-modal");
+                function openModal(imageUrl) {
+                    modalImage.src = imageUrl;
 
-            openModalButtons.forEach(button => {
-                button.addEventListener("click", function() {
-                    modalImage.src = this.getAttribute("data-image");
+                    modalContent.classList.remove("scale-100", "opacity-100");
+                    modalContent.classList.add("scale-95", "opacity-0");
+
                     modal.classList.remove("hidden");
+                    modal.classList.add("flex");
+
+                    requestAnimationFrame(() => {
+                        modalContent.classList.remove("scale-95", "opacity-0");
+                        modalContent.classList.add("scale-100", "opacity-100");
+                    });
+                }
+
+                function closeModal() {
+                    modalContent.classList.remove("scale-100", "opacity-100");
+                    modalContent.classList.add("scale-95", "opacity-0");
+
+                    setTimeout(() => {
+                        modal.classList.add("hidden");
+                        modal.classList.remove("flex");
+                        modalImage.src = "";
+                    }, 200);
+                }
+
+                document.querySelectorAll(".open-modal").forEach(btn => {
+                    btn.addEventListener("click", function() {
+                        openModal(this.dataset.image);
+                    });
+                });
+
+                closeBtn.addEventListener("click", closeModal);
+
+                modal.addEventListener("click", function(e) {
+                    if (e.target === modal) closeModal();
+                });
+
+                document.addEventListener("keydown", function(e) {
+                    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+                        closeModal();
+                    }
                 });
             });
+        </script>
+    @endsection
 
-            closeModal.addEventListener("click", function() {
-                modal.classList.add("hidden");
-            });
-
-            modal.addEventListener("click", function(e) {
-                if (e.target === modal) {
-                    modal.classList.add("hidden");
-                }
-            });
-        });
-    </script>
-</body>
-
-</html>
+</x-frontend-layout>
