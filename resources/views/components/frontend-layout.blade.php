@@ -59,7 +59,7 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
                         <a href="{{ route('home') }}" class="text-white font-bold text-2xl flex items-center">
-                            <img src="{{ $businessDetail ? Storage::url($businessDetail->logo_white) : '' }}"
+                            <img src="{{ Storage::url($businessDetail?->logo_white) }}"
                                 alt="Logo" class="h-10">
                         </a>
                     </div>
@@ -87,7 +87,7 @@
                     </div>
                 </div>
 
-                <div class="hidden md:block">
+                {{-- <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
                         <a href="/admin" target="_blank">
                             <button
@@ -96,7 +96,7 @@
                             </button>
                         </a>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="flex md:hidden">
                     <button class="text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2" type="button"
@@ -142,14 +142,14 @@
                     class="text-primary px-3 py-2 rounded-md text-sm font-medium {{ Request::routeIs('contact') ? 'border-b border-primary' : '' }}">Contact
                     Us</a>
 
-                <div class="flex pt-3 px-3">
+                {{-- <div class="flex pt-3 px-3">
                     <a href="">
                         <button
                             class="bg-primary text-white hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-medium">
                             Login
                         </button>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </nav>

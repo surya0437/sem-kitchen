@@ -157,7 +157,7 @@
                             </div>
                         </div>
 
-                        <div class="flex items-start">
+                        {{-- <div class="flex items-start">
                             <div class="bg-primary rounded-full p-3 mr-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -170,7 +170,7 @@
                                 <p class="text-gray-600">We handle all logistics including disassembly and
                                     transportation at no cost to you.</p>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="flex items-start">
                             <div class="bg-primary rounded-full p-3 mr-4">
@@ -193,7 +193,7 @@
                 <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Submit Your Equipment Details</h2>
 
-                    <form class="space-y-4" action="{{ route('sell-equipment.store') }}" method="POST"
+                    <form id="sellForm" class="space-y-4" action="{{ route('sell-equipment.store') }}" method="POST"
                         enctype="multipart/form-data">
                         @method('POST')
                         @csrf
@@ -246,8 +246,8 @@
                         <div>
                             <label for="equipment-name" class="block text-sm font-medium text-gray-700 mb-1">Equipment
                                 Name <span class="text-red-500">*</span></label>
-                            <input type="text" id="equipment-name" name="equipmentName" value="{{ old('equipmentName') }}"
-                                placeholder="Brand, Model, Size, etc."
+                            <input type="text" id="equipment-name" name="equipmentName"
+                                value="{{ old('equipmentName') }}" placeholder="Brand, Model, Size, etc."
                                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
                             @error('equipmentName')
                                 <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
@@ -320,43 +320,7 @@
         </div>
     </section>
     @section('scripts')
-        <script>
-            const input = document.getElementById('images');
-            const preview = document.getElementById('preview');
-            const errorMessage = document.getElementById('error-message');
-            const healperText = document.getElementById('helper-text');
-
-            input.addEventListener('change', function() {
-                const files = Array.from(this.files);
-
-                // Clear previous previews and error
-                preview.innerHTML = '';
-                errorMessage.classList.add('hidden');
-
-                if (files.length > 5) {
-                    healperText.classList.add('hidden');
-                    errorMessage.classList.remove('hidden');
-                    input.value = ''; // clear selected files
-                    return;
-                }
-
-                preview.classList.remove('hidden');
-                files.forEach(file => {
-                    if (!file.type.startsWith('image/')) return;
-
-                    const reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-                        img.className = 'h-16 object-cover rounded-md';
-                        preview.appendChild(img);
-                    };
-
-                    reader.readAsDataURL(file);
-                });
-            });
-        </script>
+        <script src="/assets/js/sell-equipment.js"></script>
     @endsection
 
 </x-frontend-layout>

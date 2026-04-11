@@ -91,7 +91,7 @@
                 <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
                     <h2 class="text-2xl font-bold text-primary mb-6">Send Us A Message</h2>
 
-                    <form class="space-y-6" action="{{ route('inquiry.store') }}" method="POST">
+                    <form id="inquiryForm" class="space-y-6" action="{{ route('inquiry.store') }}" method="POST">
                         @method('POST')
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -172,9 +172,9 @@
                     Come and explore our extensive collection of quality second-hand kitchen equipment
                 </p>
             </div>
-
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <div class="bg-gray-200 w-full flex items-center justify-center">
+
                     <iframe src="{!! $businessDetail?->map_iframe !!}" width="1250" height="600" style="border:0;"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -205,4 +205,8 @@
 
         </div>
     </section>
+    @section('scripts')
+        <script src="/assets/js/sell-equipment.js"></script>
+    @endsection
+
 </x-frontend-layout>
