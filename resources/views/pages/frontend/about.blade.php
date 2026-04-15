@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="rounded-lg overflow-hidden shadow-xl">
-                    <img src="{{ Storage::url($businessDetail?->thumbnail_image) }}" alt="Our Showroom"
+                    <img src="{{ env('ASSET_URL'). Storage::url($businessDetail?->thumbnail_image) }}" alt="Our Showroom"
                         class="w-full h-full object-cover">
                 </div>
             </div>
@@ -171,7 +171,7 @@
 
                     @foreach ($teams as $team)
                         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="{{ Storage::url($team->image) }}" alt="Team Member"
+                            <img src="{{ env('ASSET_URL'). Storage::url($team->image) }}" alt="Team Member"
                                 class="w-full h-64 object-cover">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-gray-900 mb-1">{{ $team->name }}</h3>

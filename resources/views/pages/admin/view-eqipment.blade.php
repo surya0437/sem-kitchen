@@ -60,12 +60,12 @@
                                 @foreach ($equipment->image as $image)
                                     <div
                                         class="relative group cursor-pointer overflow-hidden rounded-lg border border-gray-200">
-                                        <img src="{{ Storage::url($image) }}"
+                                        <img src="{{ env('ASSET_URL'). Storage::url($image) }}"
                                             class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105">
 
                                         <div
                                             class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
-                                            <button class="open-modal" data-image="{{ Storage::url($image) }}">
+                                            <button class="open-modal" data-image="{{ env('ASSET_URL'). Storage::url($image) }}">
                                                 <div
                                                     class="bg-white/20 backdrop-blur-sm p-3 rounded-full hover:scale-110 transition">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white"
@@ -157,7 +157,7 @@
 
         </div>
     </div>
-    
+
     @section('scripts')
         <script>
             document.addEventListener("DOMContentLoaded", function() {

@@ -4,7 +4,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div class="space-y-4">
                     <div class="border border-gray-200 rounded-lg overflow-hidden">
-                        <img src="{{ Storage::url($product->image[0]) }}" alt="Professional Gas Range"
+                        <img src="{{ env('ASSET_URL'). Storage::url($product->image[0]) }}" alt="Professional Gas Range"
                             class="w-full h-auto object-cover" id="main-image">
                     </div>
 
@@ -16,7 +16,7 @@
                                 @endphp
                             @endif
                             <div class="border border-primary rounded-lg overflow-hidden cursor-pointer">
-                                <img src="{{ Storage::url($image) }}" alt="Professional Gas Range"
+                                <img src="{{ env('ASSET_URL'). Storage::url($image) }}" alt="Professional Gas Range"
                                     class="w-full h-20 object-cover" onclick="changeImage(this)">
                             </div>
                         @endforeach
@@ -63,7 +63,7 @@
                     @foreach ($randomProducts as $product)
                         <a href="{{ route('single-product', $product->slug) }}"
                             class="group bg-white rounded-lg shadow-md cursor-pointer overflow-hidden border border-gray-100 transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <img src="{{ Storage::url($product->image[0]) }}" alt="{{ $product->name }}"
+                            <img src="{{ env('ASSET_URL'). Storage::url($product->image[0]) }}" alt="{{ $product->name }}"
                                 class="w-full h-64 object-cover">
                             <div class="p-4 space-y-2">
                                 <h3 class="text-lg font-bold text-gray-900">{{ $product->name }}</h3>

@@ -32,7 +32,7 @@
                     @foreach ($products as $product)
                         <a href="{{ route('single-product', $product->slug) }}"
                             class="group bg-white rounded-lg shadow-md cursor-pointer overflow-hidden border border-gray-100 transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <img src="{{ Storage::url($product->image[0]) }}" alt="{{ $product->name }}"
+                            <img src="{{ env('ASSET_URL'). Storage::url($product->image[0]) }}" alt="{{ $product->name }}"
                                 class="w-full h-64 object-cover">
                             <div class="p-4 space-y-2">
                                 <h3 class="text-lg font-bold text-gray-900">{{ $product->name }}</h3>

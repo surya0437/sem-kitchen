@@ -5,30 +5,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEM Kitchen Equipment - {{ $pageTitle }}</title>
+    <title>Shivo Kitchen Equipment - {{ $pageTitle }}</title>
 
     <meta name="description"
-        content="SEM Kitchen Equipment offers high-quality commercial kitchen solutions, including ovens, refrigerators, and custom fabrication.">
+        content="Shivo Kitchen Equipment offers high-quality commercial kitchen solutions, including ovens, refrigerators, and custom fabrication.">
     <meta name="keywords"
-        content="kitchen equipment, commercial kitchen, SEM kitchen, food service equipment, restaurant equipment">
-    <meta name="author" content="SEM Kitchen Equipment">
-    <link rel="canonical" href="https://example.com/post/post-title">
+        content="kitchen equipment, commercial kitchen, Shivo kitchen, food service equipment, restaurant equipment">
+    <meta name="author" content="Shivo Kitchen Equipment">
+    <link rel="canonical" href="https://shivokitchenequipment.com">
     <meta name="robots" content="index, follow">
 
-    <meta property="og:title" content="SEM Kitchen Equipment - Home">
+    <meta property="og:title" content="Shivo Kitchen Equipment - Home">
     <meta property="og:description"
         content="Explore premium kitchen equipment solutions tailored for restaurants and commercial kitchens.">
-    <meta property="og:image" content="https://example.com/images/og-image.jpg">
-    <meta property="og:url" content="https://example.com/post/post-title">
+    <meta property="og:image" content="{{ config('app.asset_url') . Storage::url($businessDetail?->logo_white) }}">
+    <meta property="og:url" content="https://shivokitchenequipment.com">
     <meta property="og:type" content="website">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SEM Kitchen Equipment - Home">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Shivo Kitchen Equipment - Home">
     <meta name="twitter:description"
         content="Explore premium kitchen equipment solutions tailored for restaurants and commercial kitchens.">
-    <meta name="twitter:image" content="https://example.com/images/og-image.jpg">
+    <meta name="twitter:image" content="{{ config('app.asset_url') . Storage::url($businessDetail?->logo_white) }}">
 
-    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ config('app.asset_url') . Storage::url($businessDetail?->logo_white) }}" type="image/x-icon">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
@@ -59,7 +59,7 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
                         <a href="{{ route('home') }}" class="text-white font-bold text-2xl flex items-center">
-                            <img src="{{ Storage::url($businessDetail?->logo_white) }}"
+                            <img src="{{ config('app.asset_url') . Storage::url($businessDetail?->logo_white) }}"
                                 alt="Logo" class="h-10">
                         </a>
                     </div>
@@ -163,7 +163,7 @@
                     <div class="mb-6">
                         <div class="flex items-center">
                             <a href="{{ route('home') }}" class="rounded-lg">
-                                <img src="{{ $businessDetail ? Storage::url($businessDetail->logo_white) : '' }}"
+                                <img src="{{ $businessDetail ? config('app.asset_url'). Storage::url($businessDetail->logo_white) : '' }}"
                                     alt="Company Logo" class="h-16">
                             </a>
                         </div>

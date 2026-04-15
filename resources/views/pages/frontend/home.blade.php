@@ -9,7 +9,7 @@
                     @foreach ($carousels as $carousel)
                         <div class="hidden duration-700 ease-in-out"
                             data-carousel-item="{{ $loop->iteration == 1 ? 'active' : '' }}">
-                            <img src="{{ Storage::url($carousel->image) }}" alt="{{ $carousel->title }}"
+                            <img src="{{ env('ASSET_URL'). Storage::url($carousel->image) }}" alt="{{ $carousel->title }}"
                                 class="absolute w-full h-full object-cover rounded-lg" />
                             <div
                                 class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
@@ -295,7 +295,7 @@
                     @for ($i = 0; $i < 20; $i++)
                         @foreach ($ourClients as $ourClient)
                             <div class="logo-slide w-32 h-16 flex items-center justify-center">
-                                <img src="{{ Storage::url($ourClient->image) }}" alt="{{ $ourClient->name }}"
+                                <img src="{{ env('ASSET_URL'). Storage::url($ourClient->image) }}" alt="{{ $ourClient->name }}"
                                     class="max-h-full max-w-full object-contain">
                             </div>
                         @endforeach
@@ -307,7 +307,7 @@
                     @for ($i = 0; $i < 20; $i++)
                         @foreach ($ourClients as $ourClient)
                             <div class="logo-slide w-32 h-16 flex items-center justify-center">
-                                <img src="{{ Storage::url($ourClient->image) }}" alt="{{ $ourClient->name }}"
+                                <img src="{{ env('ASSET_URL'). Storage::url($ourClient->image) }}" alt="{{ $ourClient->name }}"
                                     class="max-h-full max-w-full object-contain">
                             </div>
                         @endforeach
@@ -358,7 +358,7 @@
                                 class="swiper-slide bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
                                 <div class="flex items-center mb-4">
                                     <div class="bg-primary rounded-full p-1 mr-3">
-                                        <img src="{{ Storage::url($testimonial->image) }}" alt="Client"
+                                        <img src="{{ env('ASSET_URL'). Storage::url($testimonial->image) }}" alt="Client"
                                             class="h-12 w-12 rounded-full object-cover">
                                     </div>
                                     <div>
